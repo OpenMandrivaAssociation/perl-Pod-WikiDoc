@@ -67,8 +67,6 @@ rm -rf %buildroot
 %files
 %defattr(-,root,root)
 %doc Changes README LICENSE
-%{_mandir}/man3/*
+%{_mandir}/man?/*
 %perl_vendorlib/*
-/usr/bin/wikidoc
-/usr/share/man/man1/wikidoc.1.lzma
-
+%{_bindir}/wikidoc
