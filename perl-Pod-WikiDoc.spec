@@ -1,33 +1,33 @@
 %define upstream_name    Pod-WikiDoc
 %define upstream_version 0.18
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Examples of Pod::WikiDoc usage
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Examples of Pod::WikiDoc usage
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Cwd)
-BuildRequires: perl(File::Basename)
-BuildRequires: perl(File::Find)
-BuildRequires: perl(File::Spec)
-BuildRequires: perl(File::Temp)
-BuildRequires: perl(File::pushd)
-BuildRequires: perl(Getopt::Lucid)
-BuildRequires: perl(IO::String)
-BuildRequires: perl(IPC::Run3)
-BuildRequires: perl(Parse::RecDescent)
-BuildRequires: perl(Pod::Usage)
-BuildRequires: perl(Probe::Perl)
-BuildRequires: perl(Scalar::Util)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(Text::Balanced)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Cwd)
+BuildRequires:	perl(File::Basename)
+BuildRequires:	perl(File::Find)
+BuildRequires:	perl(File::Spec)
+BuildRequires:	perl(File::Temp)
+BuildRequires:	perl(File::pushd)
+BuildRequires:	perl(Getopt::Lucid)
+BuildRequires:	perl(IO::String)
+BuildRequires:	perl(IPC::Run3)
+BuildRequires:	perl(Parse::RecDescent)
+BuildRequires:	perl(Pod::Usage)
+BuildRequires:	perl(Probe::Perl)
+BuildRequires:	perl(Scalar::Util)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(Text::Balanced)
+BuildArch:	noarch
 
 %description
 Pod works well, but writing it can be time-consuming and tedious. For
@@ -50,23 +50,31 @@ the combined document back to a file or standard output.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README LICENSE
 %{_mandir}/man?/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 %{_bindir}/wikidoc
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.180.0-2mdv2011.0
++ Revision: 655428
+- update file list
+- rebuild for updated spec-helper
+
+* Thu Nov 19 2009 Jérôme Quelin <jquelin@mandriva.org> 0.180.0-1mdv2011.0
++ Revision: 467463
+- import perl-Pod-WikiDoc
+
+
+* Thu Nov 19 2009 cpan2dist 0.18-1mdv
+- initial mdv release, generated with cpan2dist
