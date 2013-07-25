@@ -1,15 +1,15 @@
 %define upstream_name    Pod-WikiDoc
-%define upstream_version 0.18
+%define upstream_version 0.20
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 0.20
+Release:	1
 
 Summary:	Examples of Pod::WikiDoc usage
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Pod/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Pod/Pod-WikiDoc-0.20.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Cwd)
@@ -78,3 +78,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Nov 19 2009 cpan2dist 0.18-1mdv
 - initial mdv release, generated with cpan2dist
+
