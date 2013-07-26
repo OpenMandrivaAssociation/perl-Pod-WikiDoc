@@ -1,2 +1,4 @@
+removed_sources:
+  Pod-WikiDoc-0.18.tar.gz: 1ba561a9a245d349ee39717b441099910cbbec43
 sources:
-  "Pod-WikiDoc-0.18.tar.gz": 1ba561a9a245d349ee39717b441099910cbbec43
+  Pod-WikiDoc-0.20.tar.gz: 8fcb2c0877d8a832f13544825476f52500e09b59
