@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 0.20
-Release:	2
+Release:	3
 
 Summary:	Examples of Pod::WikiDoc usage
 License:	GPL+ or Artistic
