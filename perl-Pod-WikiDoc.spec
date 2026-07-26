@@ -1,9 +1,7 @@
 %define upstream_name    Pod-WikiDoc
-%define upstream_version 0.21
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.21
+Release:	2
 
 Summary:	Examples of Pod::WikiDoc usage
 License:	GPL+ or Artistic
@@ -48,7 +46,7 @@ existing Pod and wikidoc, converting the wikidoc to Pod, and then writing
 the combined document back to a file or standard output.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
